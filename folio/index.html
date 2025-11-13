@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page_title">hash - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
+    
+</head>
+<body class="antialiased">
+
+    <div id="app" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 pb-40">
+        
+        <!-- MAIN PAGE CONTENT -->
+        <main id="main-page" class="mt-16">
+             <!-- Hero Section -->
+            <section id="about" class="mb-24">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8">
+                    <div>
+                        <h1 class="text-4xl sm:text-5xl font-bold mb-2 flex items-center gap-3" data-translate="hero_title">
+                            I'm Suraj <span class="text-3xl">🌌</span>
+                        </h1>
+                        <p class="dark:text-slate-400 text-slate-500 mb-6" data-translate="hero_subtitle">Dev | Designer | Editor</p>
+                        <div class="flex flex-wrap gap-3 text-sm dark:text-slate-300 text-slate-600 mb-8">
+                            <span class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full">
+                                <i data-lucide="map-pin" class="w-4 h-4 dark:text-green-400 text-green-600"></i>
+                                <span data-translate="location">New Delhi, India</span>
+                            </span>
+                            <span id="time-display" class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full">
+                                <i data-lucide="clock" class="w-4 h-4 dark:text-blue-400 text-blue-600"></i>
+                                <span></span>
+                            </span>
+                            <a href="https://www.youtube.com/watch?v=NGBtM026ty4" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors">
+                                <i data-lucide="file-text" class="w-4 h-4 dark:text-yellow-400 text-yellow-600"></i>
+                                <span data-translate="resume">Resume</span>
+                            </a>
+                            <a href="https://cal.com/wavefunction" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors">
+                                <i data-lucide="calendar" class="w-4 h-4 dark:text-purple-400 text-purple-600"></i>
+                                <span data-translate="schedule_meeting">Schedule a meeting</span>
+                            </a>
+                        </div>
+                        <div class="max-w-xl">
+                            <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-4 text-justify" data-translate="about_p1">
+                              a developer passionate about creating innovative products that solve real-world problems. Constantly exploring new technologies, I generate fresh ideas aimed at making a meaningful impact. My goal is to contribute to the tech ecosystem by pushing boundaries and delivering high-quality solutions.       
+                            </p>
+                            <p class="dark:text-slate-400 text-slate-600 leading-relaxed text-justify" data-translate="about_p2">
+                              My true passion lies in dreaming up interesting ideas and bringing them to life. I’m driven to build tools that not only enhance my own productivity but also help others enjoy the process of creating.                            
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 sm:-translate-x-12">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                            <circle class="stroke-current dark:text-slate-700/50 text-slate-200" cx="50" cy="50" r="44" fill="none" stroke-width="12"></circle>
+                            <circle id="progress-ring" class="stroke-current dark:text-slate-400 text-slate-500" cx="50" cy="50" r="44" fill="none" stroke-width="12" stroke-linecap="round" transform="rotate(-90 50 50)"></circle>
+                        </svg>
+                        <img src="Faust.jpeg" alt="Ayush's Avatar" class="relative w-full h-full rounded-full shadow-lg p-1">
+                    </div>
+                </div>
+            </section>
+            
+            <div class="w-full h-px dark:bg-slate-700/50 bg-slate-300 my-12"></div>
+
+            <div class="space-y-3 overflow-hidden mb-24">
+                <div class="scroller-container">
+                    <div class="scroller scroller-left" style="animation-duration: 24s;">
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-5 h-5" /> Next.js</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" class="w-5 h-5" /> Material UI</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/354478/typescript-icon.svg" class="w-5 h-5" /> TypeScript</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/333609/tailwind-css.svg" class="w-5 h-5" /> TailwindCSS</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://img.icons8.com/?size=96&id=Kwms9QBiZhG2&format=png" class="w-5 h-5" /> Cursor</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-5 h-5" /> JavaScript</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/331553/python-package-index.svg" class="w-5 h-5" /> Python</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="w-5 h-5" /> Next.js</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" class="w-5 h-5" /> Material UI</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/354478/typescript-icon.svg" class="w-5 h-5" /> TypeScript</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://www.svgrepo.com/show/333609/tailwind-css.svg" class="w-5 h-5" /> TailwindCSS</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://img.icons8.com/?size=96&id=Kwms9QBiZhG2&format=png" class="w-5 h-5" /> Cursor</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-5 h-5" /> JavaScript</span>
+                        <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/331553/python-package-index.svg" class="w-5 h-5" /> Python</span>
+
+                    </div>
+                </div>
+                <div class="scroller-container">
+                    <div class="scroller scroller-right" style="animation-duration: 26s;">
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-5 h-5" /> Docker</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" class="w-5 h-5" /> Redux</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/langchain-ipuhh4qo1jz5ssl4x0g2a.png/langchain-dp1uxj2zn3752pntqnpfu2.png?_a=DATAg1AAZAA0" class="w-5 h-5" /> Langchain</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="w-5 h-5" /> Express</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/452234/java.svg" class="w-5 h-5" /> Java</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://ui.shadcn.com/apple-touch-icon.png" class="w-5 h-5" /> ShadCN/ui</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" class="w-5 h-5" /> Prisma</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-5 h-5" /> Docker</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" class="w-5 h-5" /> Redux</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/langchain-ipuhh4qo1jz5ssl4x0g2a.png/langchain-dp1uxj2zn3752pntqnpfu2.png?_a=DATAg1AAZAA0" class="w-5 h-5" /> Langchain</span>
+
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="w-5 h-5" /> Express</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/452234/java.svg" class="w-5 h-5" /> Java</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://ui.shadcn.com/apple-touch-icon.png" class="w-5 h-5" /> ShadCN/ui</span>
+
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" class="w-5 h-5" /> Prisma</span>
+                    </div>
+                </div>
+                <div class="scroller-container">
+                    <div class="scroller scroller-left" style="animation-duration: 28s;">
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/clerk-uvna1mxd54k50cohb8o2i.png/clerk-nzr7956knokwjx841f6yye.png?_a=DATAg1AAZAA0" class="w-5 h-5" /> Clerk</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/570px-C_Programming_Language.svg.png?20201031132917" class="w-5 h-5" /> C</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/452092/react.svg" class="w-5 h-5" /> React.js</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/452075/node-js.svg" class="w-5 h-5" /> Node.js</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="w-5 h-5" /> Linux</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://img.icons8.com/androidL/512/FD7E14/amazon-web-services.png" class="w-5 h-5" /> AWS</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/331488/mongodb.svg" class="w-5 h-5" /> MongoDB</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-5 h-5" /> Figma</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" class="w-5 h-5" /> Postman</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/clerk-uvna1mxd54k50cohb8o2i.png/clerk-nzr7956knokwjx841f6yye.png?_a=DATAg1AAZAA0" class="w-5 h-5" /> Clerk</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/570px-C_Programming_Language.svg.png?20201031132917" class="w-5 h-5" /> C</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/452092/react.svg" class="w-5 h-5" /> React.js</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/452075/node-js.svg" class="w-5 h-5" /> Node.js</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="w-5 h-5" /> Linux</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://img.icons8.com/androidL/512/FD7E14/amazon-web-services.png" class="w-5 h-5" /> AWS</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2"><img src="https://www.svgrepo.com/show/331488/mongodb.svg" class="w-5 h-5" /> MongoDB</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-5 h-5" /> Figma</span>
+                         <span class="tech-pill px-4 py-2 rounded-full text-sm flex-shrink-0 flex items-center gap-2" aria-hidden="true"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" class="w-5 h-5" /> Postman</span>
+                    </div>
+                </div>
+            </div>
+            
+            <section id="achievements" class="mb-24">
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="https://leetcode.com/u/peelapatta/" target="_blank" rel="noopener noreferrer" class="social-card leetcode-glow glass-card rounded-2xl p-6 flex flex-col justify-center items-center text-center relative overflow-hidden col-span-1 md:col-span-2 lg:col-span-1 min-h-[180px] group">
+                        <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" class="absolute inset-0 w-full h-full object-contain p-8 opacity-10 -z-10 transition-all duration-300 group-hover:opacity-20" style="filter: blur(2px);">
+                        <div class="relative z-10">
+                            <i data-lucide="code-2" class="w-8 h-8 mb-2 mx-auto icon-shake"></i>
+                            <span id="leetcode-stats" class="block text-3xl font-bold">...</span>
+                            <span class="block dark:text-slate-400 text-slate-500 text-sm" data-translate="leetcode_stats">coding stats (leetcode)</span>
+                        </div>
+                    </a>
+
+                    <div id="globe-container" class="glass-card rounded-2xl col-span-1 md:col-span-2 lg:col-span-2 min-h-[180px] relative overflow-hidden p-0"></div>
+                    
+                     <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="glass-card rounded-2xl p-6 flex flex-col justify-center items-center text-center dark:bg-red-900/20 dark:border-red-500/30">
+                            <span class="text-3xl font-mono font-bold dark:text-red-400 text-red-500"><span class="blinking-x">×</span> offl1ne 離</span>
+                            <span class="dark:text-slate-400 text-slate-500 text-sm">離席中</span>
+                        </div>
+            
+                        <div class="flex flex-col gap-6">
+                            <a href="https://x.com/fullmoj69" target="_blank" rel="noopener noreferrer" class="social-card x-glow rounded-2xl p-4 flex items-center gap-4 text-white bg-black hover:bg-neutral-900 hover:bg-opacity-90">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    class="w-8 h-8 flex-shrink-0 icon-bounce fill-white">
+                                    <path d="M18.9 1.5h3.7l-8 9.2 9.4 11.8h-7.4l-5.8-7.2-6.6 7.2H0l8.6-9.3L0 1.5h7.6l5.3 6.6z"/>
+                                </svg>
+                                <div class="text-left">
+                                    <span class="font-semibold">X</span>
+                                    <p class="text-xs text-white/80" data-translate="x_text">(professional network$)</p>
+                                </div>
+                            </a>
+                            <a href="https://bsky.app/profile/onehash.bsky.social" target="_blank" rel="noopener noreferrer" class="social-card x-glow glass-card rounded-2xl p-4 flex items-center gap-4 hover:border-slate-400 dark:hover:border-slate-500">
+                                <i data-lucide="plane" class="w-8 h-8 text-blue-500 flex-shrink-0 icon-flip"></i>
+                                <div class="text-left">
+                                    <span class="font-semibold">Bluesky</span>
+                                    <p class="text-xs dark:text-slate-400 text-slate-500" data-translate="bluesky_text">(sky-gazing 🦋)</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://github.com/tonyclerk" target="_blank" rel="noopener noreferrer" class="social-card github-glow glass-card rounded-2xl p-6 flex flex-col justify-between text-center min-h-[180px] relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors z-0"></div>
+                        <img src="https://www.svgrepo.com/show/475654/github-color.svg" class="absolute inset-0 w-full h-full object-contain p-8 filter invert opacity-10 -z-10 transition-transform group-hover:scale-105" style="filter: blur(2px);">
+                        <div class="relative z-10">
+                            <h3 class="font-semibold flex items-center justify-center gap-2" data-translate="github_title"><i data-lucide="github" class="w-5 h-5 icon-shake"></i> GitHub 口座</h3>
+                            <p class="dark:text-slate-400 text-slate-500 text-sm" data-translate="github_text">My playground 👾</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <section id="projects-preview" class="mb-24">
+                 <div class="text-center mb-12">
+                    <span class="text-sm bg-white/10 px-2 py-1 rounded-md mb-2 inline-block" data-translate="epic_builds">Grand Designs 🈁️</span>
+                    <h2 class="text-3xl font-bold" data-translate="selected_works">Selected works</h2>
+                </div>
+                <p class="dark:text-slate-400 text-slate-500 max-w-2xl mx-auto mb-12 text-justify" data-translate="projects_intro">I build modern, scalable apps and craft interfaces that feel smooth and intuitive. I also work across editing and visual design, combining tech and creativity to deliver complete digital experiences. Here are a few highlights from my recent work. You can view more on my <a href="#" id="view-all-projects" class="text-green-400 hover:underline cursor-pointer" data-translate="projects_page_link">projects page</a>.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="p-6">
+                            <div class="aspect-video bg-slate-800 rounded-lg mb-4 flex items-center justify-center">
+                                <p class="text-slate-500">Screenshot goes here</p>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-1" data-translate="project1_title">Ziro</h3>
+                            <p class="text-sm dark:text-slate-400 text-slate-500 mb-4" data-translate="project1_date">January 2025 - July 2025</p>
+                            <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-4 text-sm text-justify" data-translate="project1_desc">Ziro is a tourist safety application made focusing on the safety of tourists providing features like sos button, geo-fencing etc.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">ReactJS</span>
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">TypeScript</span>
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">Firebasebase</span>
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">figma</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="link" class="w-4 h-4"></i><span data-translate="live_btn">Live</span></a>
+                                <a href="http://github.com/tonyclerk/ziro" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="github" class="w-4 h-4"></i> <span data-translate="source_btn">Source</span></a>
+                                <a href="https://www.figma.com/design/UaSQ4SzwNVl8NeH18shXty/Ziro?t=rBQ05d1QOEFkqPl7-1" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="figma" class="w-4 h-4"></i> <span data-translate="source_btn">Design</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden group">
+                        <div class="p-6">
+                           <div class="aspect-video bg-slate-800 rounded-lg mb-4 flex items-center justify-center">
+                                <p class="text-slate-500">Screenshot goes here</p>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-1" data-translate="project2_title">PopStew</h3>
+                            <p class="text-sm dark:text-slate-400 text-slate-500 mb-4" data-translate="project2_date">December 2025 - Present</p>
+                            <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-4 text-sm text-justify" data-translate="project2_desc">PopStew is a web application that helps user track their media like games, movies, books, music with features like cross-media collaboration and many more are yet to come.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">ReactJS</span>
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">TypeScript</span>
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">Firebase</span>
+                               <span class="tech-pill text-xs px-3 py-1 rounded-full">Figma</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="link" class="w-4 h-4"></i> <span data-translate="live_btn">Live</span></a>
+                                <a href="https://github.com/tonyclerk/popstew" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="github" class="w-4 h-4"></i> <span data-translate="source_btn">Source</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer id="contact" class="text-center py-16">
+                 <div class="text-center mb-4">
+                    <span class="text-sm bg-white/10 px-2 py-1 rounded-md mb-2 inline-block" data-translate="connect_badge">Connect 🌐</span>
+                    <h2 class="text-4xl font-bold" data-translate="contact_title">Contact Me 💌</h2>
+                </div>
+                <p class="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-justify" data-translate="contact_p1">
+                    I would love to collaborate and create something exceptional together. Feel free to reach out if you're interested in exploring new opportunities. You can connect with me via <span id="contact-trigger" class="text-green-400 hover:underline cursor-pointer" data-translate="contact_link">an email</span>. Let's make an impact!
+                </p>
+            </footer>
+        </main>
+
+        <!-- ABOUT PAGE CONTENT (Initially Hidden) -->
+        <div id="about-page" class="hidden mt-16">
+            <!-- About Hero -->
+            <section class="mb-20 text-center">
+                <h1 class="text-5xl font-bold mb-2" data-translate="about_page_title">About me 🚀</h1>
+                <p class="dark:text-slate-400 text-slate-500 text-lg mb-8" data-translate="about_page_subtitle">Helping build the future, one line at a time. </p>
+                <div class="flex justify-center">
+                    <div class="max-w-md rounded-2xl overflow-hidden glass-card">
+                        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWtwbGgzemJkcmN5M3V6ZXNpcnlheDlqdm90dXh4cW5zc2gwYmo5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UtKQrk88fLvaSohhpu/giphy.gif" class="w-full h-full object-cover" alt="Hero animation">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-20">
+                <div class="glass-card about-me-box rounded-2xl p-8">
+                    <p class="dark:text-slate-400 text-slate-600 leading-relaxed text-justify" data-translate="about_page_bio">
+                        Outside of programming, I’m deeply interested in a wide range of fields, including math, puzzles, travelling, reading . I also have a strong passion for the arts; whether it’s music, movies, video games, design, anime, or books. While I’m constantly exploring these areas, I don’t claim to be an expert in any of them; I simply dive into what fascinates me. I’m always striving to learn more and expand my horizons.
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="mb-20">
+                <h2 class="text-3xl font-bold mb-8" data-translate="education_title">Education background 学</h2>
+                 <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full glass-card flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold" data-translate="education_degree">B.Tech Computer Science and Engineering</h3>
+                        <p class="dark:text-slate-400 text-slate-500 text-sm" data-translate="education_details">2022 - 2026</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Experience -->
+            <section class="mb-20">
+                <h2 id="experience-heading-trigger" class="text-3xl font-bold mb-8 cursor-pointer" data-translate="experience_title">The Hustle 仕</h2>
+                <div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <p class="text-sm dark:text-slate-400 text-slate-500 mb-1" data-translate="exp1_date">XXX - YYY</p>
+                        <h3 class="font-semibold text-lg" data-translate="exp1_title">A lifelong learner</h3>
+                        <p class="dark:text-slate-300 text-slate-600 mb-4" data-translate="exp1_company">studying or experimenting</p>
+                        <ul class="list-disc list-inside space-y-2 dark:text-slate-400 text-slate-600 text-sm" data-translate="exp1_details" data-is-list="true">
+                            <li>Collaborated with team members on coding best practices, debugging, and testing, which enhanced my problem-solving and teamwork skills.</li>
+                            <li>Applied classroom knowledge of algorithms, databases, and machine learning to real-world projects, bridging the gap between theory and practice.</li>
+                            <li>Worked on building a Retrieval-Augmented Generation (RAG) pipeline for semantic document search, utilizing tools like PGVector and Langchain, deepening my understanding of data retrieval and AI-powered systems.</li>
+                            <li>    Explored the integration of AI models with cloud services, learning to deploy and scale machine learning solutions in a cloud environment (AWS, Google Cloud, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Achievements -->
+            <section class="mb-20">
+                <h2 class="text-3xl font-bold mb-8" data-translate="achievements_title">Achievements 栄</h2>
+                <div class="rounded-2xl grid grid-cols-2 gap-px dark:bg-gray-800 bg-gray-200 overflow-hidden">
+                    <!-- Achievement 1 -->
+                    <div class="achievement-card dark:bg-[#1C1C1C] bg-slate-50 p-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0"><i data-lucide="star" class="w-5 h-5 text-red-400"></i></div>
+                            <div>
+                                <p class="font-semibold text-sm sm:text-base flex items-center gap-2" data-translate="ach1_title">Open Source <a href="#" target="_blank" class="dark:text-slate-500 text-slate-400 hover:text-slate-200"><i data-lucide="external-link" class="w-3 h-3"></i></a></p>
+                                <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-500" data-translate="ach1_desc">Project name</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Achievement 2 -->
+                    <div class="achievement-card dark:bg-[#1C1C1C] bg-slate-50 p-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0"><i data-lucide="users" class="w-5 h-5 text-blue-400"></i></div>
+                            <div>
+                                <p class="font-semibold text-sm sm:text-base flex items-center gap-2" data-translate="ach2_title">Project name <a href="#" target="_blank" class="dark:text-slate-500 text-slate-400 hover:text-slate-200"><i data-lucide="external-link" class="w-3 h-3"></i></a></p>
+                                <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-500" data-translate="ach2_desc">What it brings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Achievement 3 -->
+                    <div class="achievement-card dark:bg-[#1C1C1C] bg-slate-50 p-4">
+                         <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-5 h-5 text-indigo-400"></i></div>
+                            <div>
+                                <p class="font-semibold text-sm sm:text-base flex items-center gap-2" data-translate="ach3_title">Some-Bot <a href="#" target="_blank" class="dark:text-slate-500 text-slate-400 hover:text-slate-200"><i data-lucide="external-link" class="w-3 h-3"></i></a></p>
+                                <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-500" data-translate="ach3_desc">Some bot task</p>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Achievement 4 (Filler) -->
+                    <div class="achievement-card dark:bg-[#1C1C1C] bg-slate-50 p-4">
+                         <div class="flex items-center gap-4 opacity-50">
+                            <div class="w-10 h-10 rounded-lg bg-gray-500/10 flex items-center justify-center flex-shrink-0"><i data-lucide="plus-circle" class="w-5 h-5 text-gray-400"></i></div>
+                            <div>
+                                <p class="font-semibold text-sm sm:text-base" data-translate="ach4_title">Coming Soon</p>
+                                <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-500" data-translate="ach4_desc">New Achievement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dispositions -->
+            <section class="mb-24">
+                <h2 class="text-3xl font-bold mb-8" data-translate="dispositions_title">Dispositions 好</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+                    <div class="aspect-square rounded-2xl overflow-hidden glass-card group"><img src="Hash.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                    <div class="aspect-square rounded-2xl overflow-hidden glass-card transform md:translate-y-24 group"><img src="Cloud.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                    <div class="aspect-square rounded-2xl overflow-hidden glass-card group"><img src="elipse.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                    <div class="aspect-square rounded-2xl overflow-hidden glass-card transform md:translate-y-24 group"><img src="deepb.jpg" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PROJECTS PAGE CONTENT (Initially Hidden) -->
+        <div id="projects-page" class="hidden mt-16">
+            <section class="mb-20 text-center">
+                 <h1 class="text-5xl font-bold mb-2" data-translate="projects_page_title">My latest builds 💻</h1>
+                 <p class="dark:text-slate-400 text-slate-500 text-lg max-w-3xl mx-auto text-justify" data-translate="projects_page_intro">From Full Stack apps to AI-driven creations and everything in between, here’s a look at my recent projects which I did to learn, grow and experiment.</p>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project Card 1 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="p-4">
+                        <div class="aspect-video bg-slate-800 rounded-md mb-3 overflow-hidden"><img src="https://placehold.co/600x338/1a1a1a/666666?text=Coming+Soon" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                        <h3 class="text-lg font-semibold mb-1">Ziro</h3>
+                        <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-3 text-xs">Ziro is a tourist safety application made focusing on the safety of tourists providing features like sos button, geo-fencing etc.</p>
+                        <div class="flex flex-wrap gap-2">
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">NextJS</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">TypeScript</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Supabase</span>
+                        </div>
+                        <div class="flex items-center gap-4 mt-5">
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="link" class="w-4 h-4"></i><span data-translate="live_btn">Live</span></a>
+                                <a href="http://github.com/tonyclerk/ziro" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="github" class="w-4 h-4"></i> <span data-translate="source_btn">Source</span></a>
+                                <a href="https://www.figma.com/design/UaSQ4SzwNVl8NeH18shXty/Ziro?t=rBQ05d1QOEFkqPl7-1" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="figma" class="w-4 h-4"></i> <span data-translate="source_btn">Design</span></a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Project Card 2 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="p-4">
+                       <div class="aspect-video bg-slate-800 rounded-md mb-3 overflow-hidden"><img src="https://placehold.co/600x338/1a1a1a/666666?text=Coming+Soon" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                        <h3 class="text-lg font-semibold mb-1">Popstew</h3>
+                        <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-3 text-xs">PopStew is a web application that helps user track their media like games, movies, books, music with features like cross-media collaboration and many more are yet to come..</p>
+                        <div class="flex flex-wrap gap-2">
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">ReactJS</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">TypeScript</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Recharts</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Figma</span>
+                        </div>
+                        <div class="flex items-center gap-4 mt-5">
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="link" class="w-4 h-4"></i><span data-translate="live_btn">Live</span></a>
+                                <a href="http://github.com/tonyclerk/popstew" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="github" class="w-4 h-4"></i> <span data-translate="source_btn">Source</span></a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Project Card 3 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="p-4">
+                       <div class="aspect-video bg-slate-800 rounded-md mb-3 overflow-hidden"><img src="https://placehold.co/600x338/1a1a1a/666666?text=Coming+Soon" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                        <h3 class="text-lg font-semibold mb-1">Fixr</h3>
+                        <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-3 text-xs">Fixr is a daily use chat-bot made using simple langchain structure.</p>
+                        <div class="flex flex-wrap gap-2">
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Python</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Langchain</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Gpt api</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">ReactJS</span>
+                        </div>
+                        <div class="flex items-center gap-4 mt-5">
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="link" class="w-4 h-4"></i><span data-translate="live_btn">Live</span></a>
+                                <a href="http://github.com/tonyclerk/Fixr" class="bg-white/10 px-4 py-2 text-sm rounded-full flex items-center gap-2 hover:bg-white/20 transition-colors"><i data-lucide="github" class="w-4 h-4"></i> <span data-translate="source_btn">Source</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl overflow-hidden group">
+                    <div class="p-4">
+                       <div class="aspect-video bg-slate-800 rounded-md mb-3 overflow-hidden"><img src="https://placehold.co/600x338/1a1a1a/666666?text=Coming+Soon" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"></div>
+                        <h3 class="text-lg font-semibold mb-1">Some bot</h3>
+                        <p class="dark:text-slate-400 text-slate-600 leading-relaxed mb-3 text-xs">Short description of Some bot.</p>
+                        <div class="flex flex-wrap gap-2">
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Discord.js</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Node.js</span>
+                           <span class="tech-pill text-xs px-2 py-1 rounded-md">Community</span>
+                        </div>
+                    </div>
+                </a>
+                 <!-- Project Card 5 -->
+                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl overflow-hidden group"><div class="p-4"><div class="aspect-video bg-slate-800 rounded-md mb-3"></div><h3 class="h-5 bg-slate-700 rounded w-1/2 mb-2"></h3><p class="h-12 bg-slate-700 rounded w-full mb-3"></p><div class="flex gap-2"><span class="h-5 w-14 bg-slate-700 rounded-md"></span><span class="h-5 w-14 bg-slate-700 rounded-md"></span></div></div></a>
+                <!-- Project Card 6 -->
+                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl overflow-hidden group"><div class="p-4"><div class="aspect-video bg-slate-800 rounded-md mb-3"></div><h3 class="h-5 bg-slate-700 rounded w-1/2 mb-2"></h3><p class="h-12 bg-slate-700 rounded w-full mb-3"></p><div class="flex gap-2"><span class="h-5 w-14 bg-slate-700 rounded-md"></span><span class="h-5 w-14 bg-slate-700 rounded-md"></span></div></div></a>
+                <!-- Project Card 7 -->
+                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl overflow-hidden group"><div class="p-4"><div class="aspect-video bg-slate-800 rounded-md mb-3"></div><h3 class="h-5 bg-slate-700 rounded w-1/2 mb-2"></h3><p class="h-12 bg-slate-700 rounded w-full mb-3"></p><div class="flex gap-2"><span class="h-5 w-14 bg-slate-700 rounded-md"></span><span class="h-5 w-14 bg-slate-700 rounded-md"></span></div></div></a>
+                <!-- Project Card 8 -->
+                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="glass-card rounded-xl overflow-hidden group"><div class="p-4"><div class="aspect-video bg-slate-800 rounded-md mb-3"></div><h3 class="h-5 bg-slate-700 rounded w-1/2 mb-2"></h3><p class="h-12 bg-slate-700 rounded w-full mb-3"></p><div class="flex gap-2"><span class="h-5 w-14 bg-slate-700 rounded-md"></span><span class="h-5 w-14 bg-slate-700 rounded-md"></span></div></div></a>
+            </div>
+        </div>
+
+        <footer class="text-center text-xs text-slate-500 dark:text-slate-600 pt-16 pb-20" data-translate="footer_text">
+            © 2025 Tony. All rights are reserved.
+        </footer>
+    </div>
+
+    <!-- Fixed Navigation -->
+    <nav class="glass-card p-1.5 rounded-full fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <ul class="flex items-center gap-1">
+            <li>
+                <button id="nav-home" class="p-1.5 rounded-full dark:hover:bg-white/10 hover:bg-black/10 transition-colors">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                </button>
+            </li>
+            <li class="w-px h-4 dark:bg-slate-700/50 bg-slate-300/80 mx-0.5"></li>
+            <li><a href="#about" id="nav-ad" class="px-3 py-1 text-xs rounded-full hover:bg-white/10 transition-colors" data-translate="nav_about">About</a></li>
+            <li><a href="#projects" id="nav-projects" data-translate="nav_projects" class="px-3 py-1 text-xs rounded-full hover:bg-white/10 transition-colors">Projects</a></li>
+            <li><a href="#contact" id="nav-contact" data-translate="nav_reach" class="px-3 py-1 text-xs rounded-full hover:bg-white/10 transition-colors">Contact</a></li>
+            <li class="w-px h-4 dark:bg-slate-700/50 bg-slate-300/80 mx-0.5"></li>
+            <li>
+                <button id="theme-toggle" class="p-1.5 rounded-full dark:hover:bg-white/10 hover:bg-black/10 transition-colors">
+                    <i data-lucide="moon" class="w-4 h-4"></i>
+                    <i data-lucide="sun" class="w-4 h-4"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Language Toggle (Initially Hidden) -->
+    <button id="language-toggle" class="hidden fixed bottom-32 sm:bottom-20 right-6 z-40 w-12 h-12 flex items-center justify-center rounded-full glass-card hover:bg-white/10 transition-colors font-bold text-base">
+        <span id="lang-char-jp">あ</span>
+        <span id="lang-char-en" class="hidden">EN</span>
+    </button>
+
+    <!-- Support Button -->
+    <button id="support-button" class="fixed bottom-20 sm:bottom-6 right-6 z-40 p-3 rounded-full glass-card hover:bg-white/10 transition-colors">
+        <i data-lucide="heart" class="w-6 h-6 text-red-400"></i>
+    </button>
+
+    <!-- Support Modal -->
+    <div id="support-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 w-full max-w-sm m-4 text-center relative animate-content-enter">
+            <button id="close-modal" class="absolute top-4 right-4 p-1 rounded-full hover:bg-white/10">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h2 class="text-xl font-bold mb-4" data-translate="support_title">Support My Work</h2>
+            <p class="text-sm dark:text-slate-400 text-slate-500 mb-6" data-translate="support_desc">If you like what I do, and/or wish to support my future game projects, consider supporting me!</p>
+            
+            <div class="flex justify-center mb-6">
+                <div class="bg-white p-2 rounded-lg w-40 h-40 flex items-center justify-center">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0xbd667ac15e3c2078b8fda7b98e663664941e1033" alt="QR Code" class="w-full h-full object-contain">
+                </div>
+            </div>
+
+            <div class="text-left space-y-4 text-sm">
+                <div class="flex justify-between items-center">
+                    <span class="dark:text-slate-400 text-slate-500" data-translate="support_network">Network</span>
+                    <span class="font-semibold">BNB Smart Chain (BEP20)</span>
+                </div>
+                <div class="flex justify-between items-start gap-4">
+                     <span class="dark:text-slate-400 text-slate-500 flex-shrink-0" data-translate="support_wallet">Wallet Address</span>
+                    <div class="flex items-center gap-2">
+                        <span id="wallet-address" class="font-mono break-all text-right">0xbd667ac15e3c2078b8fda7b98e663664941e1033</span>
+                        <button id="copy-address" class="p-1 rounded-md hover:bg-white/10 flex-shrink-0">
+                             <i data-lucide="copy" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-px dark:bg-slate-700/50 bg-slate-300 my-6"></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Binance_Logo.svg" alt="Binance" class="h-6 mx-auto dark:invert">
+
+        </div>
+    </div>
+    
+     <!-- Contact Modal -->
+    <div id="contact-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 w-full max-w-md m-4 relative animate-content-enter">
+            <button id="close-contact-modal" class="absolute top-4 right-4 p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h2 class="text-2xl font-bold mb-2 text-center" data-translate="contact_modal_title">Get In Touch</h2>
+            <p class="text-sm dark:text-slate-400 text-slate-500 mb-6 text-center" data-translate="contact_modal_subtitle">Let's build something cool together.</p>
+            <form id="contact-form" class="space-y-4">
+                 <div>
+                    <label for="subject" class="text-sm font-medium dark:text-slate-300 text-slate-700" data-translate="contact_modal_subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required class="mt-1 block w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-slate-700/50 rounded-md p-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:outline-none">
+                </div>
+                <div>
+                    <label for="message" class="text-sm font-medium dark:text-slate-300 text-slate-700" data-translate="contact_modal_message">Message</label>
+                    <textarea id="message" name="body" rows="4" required class="mt-1 block w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-slate-700/50 rounded-md p-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-green-500 focus:outline-none"></textarea>
+                </div>
+                 <div class="flex items-center gap-4">
+                    <button type="submit" class="w-full flex items-center justify-center gap-2 bg-slate-200 text-slate-800 font-semibold py-2.5 rounded-lg hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors duration-300">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span data-translate="contact_modal_button">Send Message</span>
+                    </button>
+                    <button type="button" id="copy-email-button" class="p-2.5 rounded-lg bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors">
+                        <i data-lucide="copy" class="w-4 h-4 text-slate-800 dark:text-slate-200"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+   </body>
+</html>

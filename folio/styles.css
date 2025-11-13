@@ -1,0 +1,151 @@
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+            background-attachment: fixed;
+        }
+        .dark body {
+            background-color: #111;
+            color: #E2E8F0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 1.5rem 1.5rem; /* 24px grid */
+        }
+        .light body {
+            background-color: #cbd5e1; /* slate-300 */
+            color: #0F172A;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 1.5rem 1.5rem; /* 24px grid */
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass-card {
+            background: rgba(17, 17, 17, 0.5);
+        }
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Tech Pills for Skills Section */
+        .tech-pill {
+            background-color: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .tech-pill:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        .light .tech-pill {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: #334155;
+        }
+        .light .tech-pill:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Infinite Scroller Animation */
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-50% - 0.75rem)); }
+        }
+        @keyframes scroll-right {
+            from { transform: translateX(calc(-50% - 0.75rem)); }
+            to { transform: translateX(0); }
+        }
+        .scroller-container {
+            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+        }
+        .scroller {
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            display: flex;
+            gap: 0.75rem;
+            width: max-content;
+        }
+        .scroller-left { animation-name: scroll-left; }
+        .scroller-right { animation-name: scroll-right; }
+        
+        /* Blinking "Offline" Indicator */
+        @keyframes blink { 50% { opacity: 0; } }
+        .blinking-x { animation: blink 1s step-end infinite; }
+        
+        /* Globe Container */
+        #globe-container canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+        
+        /* Social Card Hover Effects */
+        .social-card { transition: all 0.3s ease-in-out; }
+
+        @keyframes icon-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        @keyframes icon-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+        @keyframes icon-flip { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+        .social-card:hover .icon-bounce { animation: icon-bounce 0.5s ease-in-out; }
+        .social-card:hover .icon-shake { animation: icon-shake 0.4s ease-in-out; }
+        .social-card:hover .icon-flip { animation: icon-flip 0.7s ease; }
+
+        .leetcode-glow:hover { box-shadow: 0 0 20px 5px rgba(255, 165, 0, 0.4); transform: translateY(-4px); }
+        .linkedin-glow:hover { box-shadow: 0 0 20px 5px rgba(10, 102, 194, 0.5); transform: translateY(-4px); }
+        .dark .x-glow:hover, .dark .github-glow:hover { box-shadow: 0 0 20px 5px rgba(230, 230, 230, 0.3); transform: translateY(-4px); }
+        .light .x-glow:hover, .light .github-glow:hover { box-shadow: 0 0 20px 5px rgba(50, 50, 50, 0.3); transform: translateY(-4px); }
+
+        /* Experience Timeline Style */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            padding-bottom: 2rem;
+            border-left: 2px solid;
+        }
+        .dark .timeline-item { border-color: #334155; } /* slate-700 */
+        .light .timeline-item { border-color: #cbd5e1; } /* slate-300 */
+
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px; /* (18px dot width / 2) */
+            top: 4px;
+            height: 18px;
+            width: 18px;
+            border: 3px solid;
+            border-radius: 50%;
+        }
+        .dark .timeline-dot {
+             background-color: #111;
+             border-color: #94a3b8; /* slate-400 */
+        }
+        .light .timeline-dot {
+            background-color: #cbd5e1; /* slate-300 */
+            border-color: #475569; /* slate-600 */
+        }
+        
+        .light .about-me-box {
+             background: rgba(255, 255, 255, 0.8); /* white @ 80% */
+        }
+
+        /* Page & Modal Load Animation */
+        @keyframes content-enter {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-content-enter {
+            animation: content-enter 0.4s ease-out forwards;
+        }
